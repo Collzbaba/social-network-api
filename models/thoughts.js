@@ -1,67 +1,67 @@
-const { Schema, model, Types } = require('mongoose')
-const { format_date } = require('../utils/formatter')
+const { Schema, model, Types } = require("mongoose");
+const moment = require("moment");
 
-const reactionSchema = new Schema(
-    {
-        reactionId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId()
-        },
-        reactionBody: {
-            type: String,
-            required: true,
-            maxLength: 280
-        },
-        username: {
-            type: String,
-            required: true
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            get: (time) => format_date(time)
-        }
+const reactionSchema = new Schema({
+  reactionId: {
+    type: Schema.Types.ObjectId,
+    default: function () {
+      return new Types.ObjectId();
     },
-    {
-        toJSON: {
-            getters: true
-        },
-        id: false
-    }
-)
-
-const ThoughtSchema = new Schema(
-    {
-        thoughtText: {
-            type: String,
-            required: true,
-            minlength: 1,
-            maxLength: 280
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            get: (time) => format_date(time) 
-        },
-        username: {
-            type: String,
-            required: true
-        },
-        reactions: [reactionSchema]
+  },
+  reactionBody: {
+    type: String,
+    required: true,
+    maxlength: 280,
+  },
+  username: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: function (date) {
+      return moment(date).format("mm/dd/yyyy");
     },
-    {
-        toJSON: {
-            virtuals: true,
-            getters: true 
-        },
-        id: false
-    }
-)
-
-ThoughtSchema.virtual('reactionCount').get(function() {
-    return this.reactions.length;
+  },
 });
 
-const Thought = model('Thought', ThoughtSchema)
+const ThoughtSchema = new Schema(
+  {
+    thoughtText: {
+      type: String,
+      required: true,
+      minlength: 1,
+      maxlength: 280,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: function(date) {
+        return moment(date).format("mm/dd/yyyy");
+      }
+    },
+    username: {
+        type: String,
+        required: true
+    },
+    reactions: [
+      reactionSchema,
+    ],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
+);
 
-module.exports = Thought
+ThoughtSchema.virtual("reactionCount").get(function () {
+  return this.reactions.length;
+});
+
+
+
+const Thought = model("Thought", ThoughtSchema);
+
+module.exports = Thought;
