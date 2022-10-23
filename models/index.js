@@ -1,6 +1,6 @@
 // Require Users and Thoughts Models
-const Users = require('./Users')
-const Thought = require('./Thought')
+const User = require('./Users')
+const Thought = require('./Thoughts')
 
 // Export Modules: Users and Thoughts
-module.exports = { Users, Thought  }
+module.exports = { User, Thought  }
