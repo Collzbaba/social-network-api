@@ -1,0 +1,20 @@
+{
+  "name": "social-network-api",
+  "version": "1.0.0",
+  "description": "This is a social network api that ususes a NoSQL database that can handle large amounts of unstructured data.",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm start",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Collzbaba/social-network-api.git"
+  },
+  "author": "Blessed Adodo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Collzbaba/social-network-api/issues"
+  },
+  "homepage": "https://github.com/Collzbaba/social-network-api#readme"
+}
