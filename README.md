@@ -34,8 +34,8 @@ Initialize the app by typing in the root of the project folder npm start. Use th
 ***
 
 ## Walkthrough video
-
-
+https://vimeo.com/763662187
+****
 
 ## Questions
 ### GitHub Profile:
