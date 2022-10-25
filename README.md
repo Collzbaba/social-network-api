@@ -27,8 +27,15 @@ Initialize the app by typing in the root of the project folder npm start. Use th
 ***
 
 ## Test ScreenShot
-
+![ScreenShot](/assets/get-routes-to-return-a-single-thoughts.png)
+![screenShot](/assets/get-routes-to-return-a-single-user.png)
+![screenShot](/assets/get-routes-to-return-all-users.png)
+![screenShot](/assets/get-routes-to-return-all-thoughts.png)
 ***
+
+## Walkthrough video
+
+
 
 ## Questions
 ### GitHub Profile:
